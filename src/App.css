@@ -1,10 +1,41 @@
 #header {
   display: flex;
-  height: 4rem;
+  min-height: 4rem;
   justify-content: center;
   align-items: center;
   background-color: #dddddd;
+  padding-inline: 1rem;
 }
 #header h1 {
   font-size: 2rem;
+  text-align: center;
 }
+
+/* —————————————————— */
+/* Input */
+/* —————————————————— */
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  flex-direction: column;
+}
+#search-input {
+  max-width: 30rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: 1px solid #dddddd;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.error-message {
+  color: #ed4337;
+  font-size: 1.5rem;
+  margin-block: 1rem;
+}
+
+/* —————————————————— */
+/* Tools */
+/* —————————————————— */
