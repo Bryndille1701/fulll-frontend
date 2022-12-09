@@ -1,4 +1,12 @@
-export const getGithubUser = async (searchInput: string) => {
+import { GithubUserResponse } from '../types/github';
+
+interface GetGithubUserResponse extends GithubUserResponse {
+  message?: string;
+}
+
+export const getGithubUser = async (
+  searchInput: string
+): Promise<GetGithubUserResponse> => {
   try {
     const response = await fetch(
       `https://api.github.com/search/users?q=${searchInput}`

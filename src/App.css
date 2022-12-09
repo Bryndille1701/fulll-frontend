@@ -1,10 +1,12 @@
+.wrapper {
+  padding-inline: 1rem;
+}
 #header {
   display: flex;
   min-height: 4rem;
   justify-content: center;
   align-items: center;
   background-color: #dddddd;
-  padding-inline: 1rem;
 }
 #header h1 {
   font-size: 2rem;
@@ -19,7 +21,6 @@
   display: flex;
   align-items: center;
   padding-block: 2rem;
-  padding-inline: 1rem;
   flex-direction: column;
 }
 #search-input {

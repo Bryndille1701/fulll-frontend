@@ -16,7 +16,6 @@ const Input = ({ input, onInputChange, message }: InputProps) => {
         onChange={onInputChange}
       />
       {message && <p className="error-message">{message}</p>}
-      <p className="error-message">test</p>
     </div>
   );
 };
