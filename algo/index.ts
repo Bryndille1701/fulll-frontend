@@ -14,4 +14,4 @@ for (let i = 1; i <= 100; i++) {
 
 export {};
 
-// tsc index.ts --  && node index.js to run
+// tsc index.ts && node index.js to run
