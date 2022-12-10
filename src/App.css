@@ -1,8 +1,26 @@
+/* —————————————————— */
+/* Utilities */
+/* —————————————————— */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* —————————————————— */
+/* Layout */
+/* —————————————————— */
 .wrapper {
   padding-inline: 1rem;
 }
 #header {
   position: fixed;
+  z-index: 1;
   top: 0;
   display: flex;
   width: 100%;
@@ -19,7 +37,7 @@
 }
 
 /* —————————————————— */
-/* Input */
+/* Main */
 /* —————————————————— */
 #main {
   padding-top: 18rem;
@@ -27,14 +45,32 @@
 }
 .main__header {
   position: fixed;
+  z-index: 1;
   top: 4rem;
   left: 0;
   height: 8rem;
-  width: 100%;
+  width: calc(100% - 2rem);
   background-color: #fff;
   padding-block: 2rem;
   box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2rem;
 }
+/* —————————————————— */
+/* Global */
+/* —————————————————— */
+button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: #333;
+  cursor: pointer;
+}
+/* —————————————————— */
+/* Input */
+/* —————————————————— */
 .input-container {
   width: 100%;
   display: flex;
@@ -59,6 +95,19 @@
 /* Tools */
 /* —————————————————— */
 
+.section-tools {
+  display: flex;
+  justify-content: space-between;
+}
+.section-tools__checkbox {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.section-tools__buttons {
+  display: flex;
+  column-gap: 1rem;
+}
 /* —————————————————— */
 /* Grid */
 /* —————————————————— */
@@ -73,8 +122,8 @@
 }
 
 .item-card {
-  /* 20% width minus 4/5 of the gutter minus the padding */
-  width: calc(20% - 0.8rem - 2rem);
+  /* 20% width minus 4/5 of the gutter */
+  width: calc(20% - 0.8rem);
   background-color: #eee;
   padding: 1rem;
   display: flex;
@@ -82,6 +131,18 @@
   align-items: center;
   row-gap: 1rem;
   box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
+}
+.item-card.is-selected {
+  border-color: #33aaff;
+}
+.item-card__checkbox {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 .item-card p {
   margin: 0.3rem 0;

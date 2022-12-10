@@ -4,16 +4,26 @@ import GithubCard from './GithubCard';
 type GridProps = {
   items: GithubUser[];
   loading: boolean;
+  selected: GithubUser['id'][];
+  setSelected: (selected: GithubUser['id'][]) => void;
 };
 
-const Grid = ({ items, loading }: GridProps) => {
+const Grid = ({ items, loading, selected, setSelected }: GridProps) => {
   return (
     <div className="items-grid">
       <>
         {loading && <p>Loading...</p>}
         {items &&
           items.length > 0 &&
-          items.map((item) => <GithubCard key={item.id} user={item} />)}
+          items.map((item, idx) => (
+            <GithubCard
+              idx={idx}
+              selected={selected}
+              setSelected={setSelected}
+              key={idx}
+              user={item}
+            />
+          ))}
       </>
     </div>
   );

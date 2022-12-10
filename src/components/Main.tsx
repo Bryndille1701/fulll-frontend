@@ -11,6 +11,7 @@ const Main = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState<GithubUser[]>([]);
+  const [selected, setSelected] = useState<number[]>([]);
   const debouncedInput = useDebounce(input, 500);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -26,6 +27,7 @@ const Main = () => {
           setMessage(data.message);
         } else if (data.items) {
           if (data.total_count && data.total_count > 0) {
+            setSelected([]);
             setItems(data.items);
           } else {
             setMessage('No results found');
@@ -41,9 +43,21 @@ const Main = () => {
     <main id="main" role="main" className="wrapper">
       <header className="main__header wrapper">
         <Input input={input} onInputChange={onInputChange} message={message} />
-        <Tools />
+        <Tools
+          setItems={setItems}
+          items={items}
+          selected={selected}
+          setSelected={setSelected}
+        />
       </header>
-      {items && items.length > 0 && <Grid items={items} loading={loading} />}
+      {items && items.length > 0 && (
+        <Grid
+          selected={selected}
+          setSelected={setSelected}
+          items={items}
+          loading={loading}
+        />
+      )}
     </main>
   );
 };
