@@ -1,9 +1,9 @@
 const fizzbuzz = (n: number) => {
-  // 15 est divisible par 3 et 5
+  // 15 is divisible by 3 and 5
   if (n % 15 === 0) return 'fizzbuzz';
   if (n % 3 === 0) return 'fizz';
   if (n % 5 === 0) return 'buzz';
-  // On retourne la valeur de n sous forme de string
+  // We return the value as a string
   return String(n);
 };
 
