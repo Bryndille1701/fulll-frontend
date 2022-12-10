@@ -17,9 +17,11 @@ const Main = () => {
   const [selected, setSelected] = useState<number[]>([]);
   const debouncedInput = useDebounce(input, 500);
 
+  // Get users from Github API on input change, handle errors
   useEffect(() => {
     if (debouncedInput) {
       setMessage('');
+      // Use of async/await instead of useEffect's callback…
       const getUser = async (debouncedInput: string) => {
         setLoading(true);
         setItems([]);
@@ -28,18 +30,12 @@ const Main = () => {
         if (data.message) {
           setMessage(data.message);
         } else if (data.items) {
-          if (data.total_count && data.total_count > 0) {
-            setSelected([]);
-            setItems(data.items);
-            setMessage('');
-          } else {
-            setItems([]);
-            setMessage('');
-          }
-        } else if (data.message) {
-          setMessage(data.message);
+          setSelected([]);
+          setItems(data.items);
+          setMessage('');
         }
       };
+      // Call the async function getUser right after its declaration
       getUser(debouncedInput);
     }
   }, [debouncedInput]);

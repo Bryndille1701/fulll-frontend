@@ -10,6 +10,7 @@ type GithubCardProps = {
   editMode: boolean;
 };
 
+// GithubCard component, for a single item
 const GithubCard = ({
   user,
   selected,

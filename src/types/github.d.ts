@@ -1,3 +1,4 @@
+// Types for Github API response
 export interface GithubUserResponse {
   total_count?: number;
   incomplete_results?: boolean;

@@ -1,3 +1,4 @@
+// Simple header component
 const Header = () => {
   return (
     <header id="header" className="wrapper" role="banner">

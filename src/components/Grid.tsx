@@ -9,6 +9,7 @@ type GridProps = {
   editMode: boolean;
 };
 
+// Grid component, for the list of items
 const Grid = ({
   items,
   loading,

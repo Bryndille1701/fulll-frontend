@@ -4,6 +4,7 @@ type InputProps = {
   message: string;
 };
 
+// Input component, for the search input and the error message
 const Input = ({ input, onInputChange, message }: InputProps) => {
   return (
     <div className="input-container">
