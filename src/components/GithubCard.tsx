@@ -7,9 +7,16 @@ type GithubCardProps = {
   selected: GithubUser['id'][];
   setSelected: (selected: GithubUser['id'][]) => void;
   idx: number;
+  editMode: boolean;
 };
 
-const GithubCard = ({ user, selected, setSelected, idx }: GithubCardProps) => {
+const GithubCard = ({
+  user,
+  selected,
+  setSelected,
+  idx,
+  editMode,
+}: GithubCardProps) => {
   const isSelected = selected.includes(idx);
   const onCheckboxClick = () => {
     if (isSelected) {
@@ -24,9 +31,11 @@ const GithubCard = ({ user, selected, setSelected, idx }: GithubCardProps) => {
   return (
     <div className={`item-card${isSelected ? ' is-selected' : ''}`}>
       <div className="item-card__checkbox">
-        <button onClick={onCheckboxClick}>
-          <>{isSelected ? <CheckboxFull /> : <CheckboxEmpty />}</>
-        </button>
+        {editMode && (
+          <button onClick={onCheckboxClick}>
+            <>{isSelected ? <CheckboxFull /> : <CheckboxEmpty />}</>
+          </button>
+        )}
       </div>
       <div className="item-card__image">
         <img src={user.avatar_url} alt="" />

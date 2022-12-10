@@ -6,9 +6,16 @@ type GridProps = {
   loading: boolean;
   selected: GithubUser['id'][];
   setSelected: (selected: GithubUser['id'][]) => void;
+  editMode: boolean;
 };
 
-const Grid = ({ items, loading, selected, setSelected }: GridProps) => {
+const Grid = ({
+  items,
+  loading,
+  selected,
+  setSelected,
+  editMode,
+}: GridProps) => {
   return (
     <div className="items-grid">
       <>
@@ -22,6 +29,7 @@ const Grid = ({ items, loading, selected, setSelected }: GridProps) => {
               setSelected={setSelected}
               key={idx}
               user={item}
+              editMode={editMode}
             />
           ))}
       </>
