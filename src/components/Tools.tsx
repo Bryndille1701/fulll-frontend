@@ -58,7 +58,13 @@ const Tools = ({ items, selected, setSelected, setItems }: ToolsProps) => {
         {selected.length > 0 && selected.length === items.length && (
           <CheckboxFull />
         )}
-        <span>Tout sélectionner</span>
+        <span>
+          {selected.length > 0
+            ? `${selected.length} élément${
+                selected.length > 1 ? 's' : ''
+              } sélectionné${selected.length > 1 ? 's' : ''}`
+            : 'Tout sélectionner'}
+        </span>
       </button>
       <div className="section-tools__buttons">
         <button onClick={onCopyClick}>
