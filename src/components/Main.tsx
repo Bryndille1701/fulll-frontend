@@ -16,9 +16,7 @@ const Main = () => {
   const [items, setItems] = useState<GithubUser[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
   const debouncedInput = useDebounce(input, 500);
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
+
   useEffect(() => {
     if (debouncedInput) {
       setMessage('');
@@ -46,10 +44,15 @@ const Main = () => {
     }
   }, [debouncedInput]);
 
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
   const onEditModeClick = () => {
     setEditMode(!editMode);
     setSelected([]);
   };
+
   return (
     <main id="main" role="main" className="wrapper">
       <header className="main__header wrapper">

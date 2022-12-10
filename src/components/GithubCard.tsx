@@ -4,8 +4,8 @@ import CheckboxFull from './icons/CheckboxFull';
 
 type GithubCardProps = {
   user: GithubUser;
-  selected: GithubUser['id'][];
-  setSelected: (selected: GithubUser['id'][]) => void;
+  selected: number[];
+  setSelected: (selected: number[]) => void;
   idx: number;
   editMode: boolean;
 };

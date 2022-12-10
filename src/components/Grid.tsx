@@ -4,8 +4,8 @@ import GithubCard from './GithubCard';
 type GridProps = {
   items: GithubUser[];
   loading: boolean;
-  selected: GithubUser['id'][];
-  setSelected: (selected: GithubUser['id'][]) => void;
+  selected: number[];
+  setSelected: (selected: number[]) => void;
   editMode: boolean;
 };
 
