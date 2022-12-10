@@ -17,10 +17,14 @@ const Grid = ({
   editMode,
 }: GridProps) => {
   return (
-    <div className="items-grid">
+    <div
+      className={`items-grid${loading || !items.length ? ' is-centered' : ''}`}
+    >
       <>
-        {loading && <p>Loading...</p>}
+        {loading && <p>Chargement...</p>}
+        {!items.length && !loading && <p>Aucun résultat</p>}
         {items &&
+          !loading &&
           items.length > 0 &&
           items.map((item, idx) => (
             <GithubCard

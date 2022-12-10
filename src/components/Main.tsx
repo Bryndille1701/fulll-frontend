@@ -24,6 +24,7 @@ const Main = () => {
       setMessage('');
       const getUser = async (debouncedInput: string) => {
         setLoading(true);
+        setItems([]);
         const data = await getGithubUser(debouncedInput);
         setLoading(false);
         if (data.message) {
@@ -32,8 +33,10 @@ const Main = () => {
           if (data.total_count && data.total_count > 0) {
             setSelected([]);
             setItems(data.items);
+            setMessage('');
           } else {
-            setMessage('No results found');
+            setItems([]);
+            setMessage('');
           }
         } else if (data.message) {
           setMessage(data.message);
@@ -65,15 +68,13 @@ const Main = () => {
           />
         )}
       </header>
-      {items && items.length > 0 && (
-        <Grid
-          selected={selected}
-          setSelected={setSelected}
-          items={items}
-          loading={loading}
-          editMode={editMode}
-        />
-      )}
+      <Grid
+        selected={selected}
+        setSelected={setSelected}
+        items={items}
+        loading={loading}
+        editMode={editMode}
+      />
     </main>
   );
 };

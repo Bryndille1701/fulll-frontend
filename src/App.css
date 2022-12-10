@@ -120,7 +120,9 @@ button {
   border: 1px solid #dddddd;
   padding: 1rem;
 }
-
+.items-grid.is-centered {
+  justify-content: center;
+}
 .item-card {
   /* 20% width minus 4/5 of the gutter */
   width: calc(20% - 0.8rem);
