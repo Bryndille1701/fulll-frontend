@@ -1,4 +1,5 @@
 import { GithubUser } from '../types/github';
+import GithubCard from './GithubCard';
 
 type GridProps = {
   items: GithubUser[];
@@ -6,7 +7,16 @@ type GridProps = {
 };
 
 const Grid = ({ items, loading }: GridProps) => {
-  return <div>{JSON.stringify(items)}</div>;
+  return (
+    <div className="items-grid">
+      <>
+        {loading && <p>Loading...</p>}
+        {items &&
+          items.length > 0 &&
+          items.map((item) => <GithubCard key={item.id} user={item} />)}
+      </>
+    </div>
+  );
 };
 
 export default Grid;

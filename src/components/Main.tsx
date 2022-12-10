@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { setSyntheticTrailingComments } from 'typescript';
 import useDebounce from '../hooks/use-debounce';
 import { GithubUser } from '../types/github';
 import { getGithubUser } from '../utils/github';
@@ -40,11 +39,11 @@ const Main = () => {
   }, [debouncedInput]);
   return (
     <main id="main" role="main" className="wrapper">
-      <header>
+      <header className="main__header wrapper">
         <Input input={input} onInputChange={onInputChange} message={message} />
         <Tools />
-        <Grid items={items} loading={loading} />
       </header>
+      {items && items.length > 0 && <Grid items={items} loading={loading} />}
     </main>
   );
 };
