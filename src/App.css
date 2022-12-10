@@ -138,19 +138,19 @@ button {
   position: relative;
   box-sizing: border-box;
 }
-// 1312 pixels, 3 columns
+/* 1312 pixels, 3 columns */
 @media (max-width: 82rem) {
   .item-card {
     width: calc(33.3333333% - 0.66666666rem);
   }
 }
-// 768 pixels, 2 columns
+/* 768 pixels, 2 columns */
 @media (max-width: 48rem) {
   .item-card {
     width: calc(50% - 0.5rem);
   }
 }
-// 480 pixels, 1 column
+/* 480 pixels, 1 column */
 @media (max-width: 30rem) {
   .item-card {
     width: calc(100%);
